@@ -34,10 +34,11 @@ overview () {
 	echo ====================
 	echo -e "\e[1;31m>>> THESE FOLLOWING FILES WILL BE SYMLINKED, and the existing files at $dotdir will be **REMOVED!!** <<<\e[0m"
 	echo
-	echo "$clonedir/anyrun/  ---SYMLINKED-->  $dotdir/anyrun/"
-	echo "$clonedir/waybar/  ---SYMLINKED-->  $dotdir/waybar/"
-	echo "$clonedir/kitty/   ---SYMLINKED-->  $dotdir/kitty/"
-	echo "$clonedir/hypr/    ---SYMLINKED-->  $dotdir/hypr/"
+	echo "$clonedir/anyrun/    ---SYMLINKED-->  $dotdir/anyrun/"
+	echo "$clonedir/waybar/    ---SYMLINKED-->  $dotdir/waybar/"
+	echo "$clonedir/kitty/     ---SYMLINKED-->  $dotdir/kitty/"
+	echo "$clonedir/hypr/      ---SYMLINKED-->  $dotdir/hypr/"
+	echo "$clonedir/swaylock/  ---SYMLINKED-->  $dotdir/swaylock/"
 	echo
 	echo "any existing configuration files at these locations will be REMOVED, including symlinks"
 	echo
@@ -77,10 +78,12 @@ install () {
 	rm -rf $dotdir/waybar
 	rm -rf $dotdir/kitty
 	rm -rf $dotdir/hypr
+	rm -rf $dotdir/swaylock
 	ln -sf $clonedir/anyrun $dotdir/anyrun
 	ln -sf $clonedir/waybar $dotdir/waybar
 	ln -sf $clonedir/kitty $dotdir/kitty
 	ln -sf $clonedir/hypr $dotdir/hypr
+	ln -sf $clonedir/swaylock $dotdir/swaylock
 	echo "done"
 }
 
