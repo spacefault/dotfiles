@@ -73,10 +73,10 @@ confirm () {
 install () {
 	echo "Installing dotfiles.."
 	echo "DO NOT CLOSE THIS TERMINAL PROCESS UNTIL IT HAS COMPLETED."
-	rm $dotdir/anyrun
-	rm $dotdir/waybar
-	rm $dotdir/kitty
-	rm $dotdir/hypr
+	rm -rf $dotdir/anyrun
+	rm -rf $dotdir/waybar
+	rm -rf $dotdir/kitty
+	rm -rf $dotdir/hypr
 	ln -sf $clonedir/anyrun $dotdir/anyrun
 	ln -sf $clonedir/waybar $dotdir/waybar
 	ln -sf $clonedir/kitty $dotdir/kitty
