@@ -1,0 +1,123 @@
+{
+  "layer": "top",
+  "position": "top", 
+  "height": 40,
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-right": 5,
+
+  "modules-right": [
+    "custom/notification",
+    "wireplumber",
+    "battery",
+    "network",
+    "custom/power"
+  ],
+  "modules-center": [ 
+    "clock",
+    "custom/weather",
+    "mpris"
+  ],
+  "modules-left": [ 
+    "image",
+    "hyprland/workspaces",
+    "tray"
+  ],
+
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "player-icons": {
+      "default": " ",
+      "mpv": " ",
+      "spotify": " " 
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+  },
+
+  "image": {
+     "path": "/home/devin/.config/waybar/images/nixos_dark.svg"
+  },
+
+  "custom/weather": {
+     "format": " {}",
+     "tooltip": true,
+     "interval": 3600,
+     "exec": "/home/devin/.config/waybar/scripts/waybar-wttr.py",
+     "return-type": "json"
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{}"
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}  {}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱅫",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂛",
+      "dnd-inhibited-notification": "󱅫",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },   
+
+  "battery": {
+    "bat": "BAT0",
+    "interval": "1",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
+  },
+  "clock": {
+   "format": "{:   %I:%M %p     %Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "󰤨  {essid} ({signalStrength}%)",
+    "tooltip-format-wifi": "{ifname} via {gwaddr}",
+    "format-ethernet": "󰈀   Connected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "⚠  Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "tooltip": true,
+    "tooltip-format": "{volume}",
+    "format-muted": "  Muted",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": [ "", "", ""]
+  },
+
+  "custom/power": {
+    "format": "󰩈",
+    "on-click": "wlogout"
+  },
+}
