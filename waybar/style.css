@@ -49,7 +49,7 @@ tooltip {
   border: 3px solid @bg1;
 }
 
-#clock, #battery, #wireplumber, #network, #tray, #custom-weather, #custom-notification, #workspaces, #mpris {
+#language, #clock, #battery, #wireplumber, #network, #tray, #custom-weather, #custom-notification, #workspaces, #mpris {
   background: @bg1;
   padding: 0px 10px;
   margin: 7px 0px;
@@ -113,7 +113,7 @@ tooltip {
   margin-right: 5px;
 }
 
-#workspaces, #custom-notification, #wireplumber, #battery, #mpris {
+#language, #workspaces, #custom-notification, #wireplumber, #battery, #mpris {
   color: @text;
   margin-right: 5px;
 }
