@@ -40,6 +40,7 @@ overview () {
 	echo "$clonedir/hypr/      ---SYMLINKED-->  $dotdir/hypr/"
 	echo "$clonedir/swaylock/  ---SYMLINKED-->  $dotdir/swaylock/"
 	echo "$clonedir/.zshrc     ---SYMLINKED-->  $HOME/.zshrc"
+	echo "$clonedir/dunst/     ---SYMLINKED-->  $dotdir/dunst/"
 	echo
 	echo "any existing configuration files at these locations will be REMOVED, including symlinks"
 	echo
@@ -80,6 +81,7 @@ install () {
 	rm -rf $dotdir/kitty
 	rm -rf $dotdir/hypr
 	rm -rf $dotdir/swaylock
+	rm -rf $dotdir/dunst
 	cp $HOME/.zshrc $HOME/.zshrc.old
 	rm $HOME/.zshrc
 	ln -sf $clonedir/anyrun $dotdir/anyrun
@@ -87,6 +89,7 @@ install () {
 	ln -sf $clonedir/kitty $dotdir/kitty
 	ln -sf $clonedir/hypr $dotdir/hypr
 	ln -sf $clonedir/swaylock $dotdir/swaylock
+	ln -sf $clonedir/dunst $dotdir/dunst
 	ln -sf $clonedir/.zshrc $HOME/.zshrc
 	echo "done"
 }
