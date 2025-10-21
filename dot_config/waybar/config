@@ -1,0 +1,87 @@
+[
+  {
+    "battery": {
+      "bat": "BAT0",
+      "format": "{icon} {capacity}%",
+      "format-charging": "{icon} {capacity}% (Charging)",
+      "format-icons": [
+        "󰁻",
+        "󰁽",
+        "󰁿",
+        "󰂁",
+        "󰁹"
+      ],
+      "interval": 1,
+      "states": {
+        "critical": 10,
+        "warning": 20
+      }
+    },
+    "clock": {
+      "format": "{:%a %b %d %I:%M %p}",
+      "tooltip-format": "<tt><big>{calendar}</big></tt>"
+    },
+    "custom/notification": {
+      "escape": true,
+      "exec": "swaync-client -swb",
+      "exec-if": "which swaync-client",
+      "format": "{icon} {}",
+      "format-icons": {
+        "dnd-inhibited-none": "󱙍 ",
+        "dnd-inhibited-notification": "󱙍 ",
+        "dnd-none": "󱙍 ",
+        "dnd-notification": "󱙍 ",
+        "inhibited-none": "󰍡 ",
+        "inhibited-notification": "󱥁 ",
+        "none": "󰍡 ",
+        "notification": "󱥁 "
+      },
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "return-type": "json",
+      "tooltip": false
+    },
+    "height": 24,
+    "hyprland/window": {
+      "format": "{title}"
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "󰒳  ",
+        "deactivated": "󰒲  "
+      }
+    },
+    "layer": "top",
+    "modules-center": [],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "tray",
+      "idle_inhibitor",
+      "custom/notification",
+      "wireplumber",
+      "battery",
+      "clock"
+    ],
+    "mpris": {
+      "format": "{player_icon} {title} - {artist}",
+      "format-paused": "{status_icon} {title} - {artist}",
+      "player-icons": {
+        "default": " "
+      },
+      "status-icons": {
+        "paused": "⏸"
+      }
+    },
+    "position": "top",
+    "wireplumber": {
+      "format": "   {volume}%",
+      "format-muted": "   {volume}%",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "tooltip": "true",
+      "tooltip-format": "{volume}%"
+    }
+  }
+]

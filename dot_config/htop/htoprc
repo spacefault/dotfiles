@@ -1,0 +1,15 @@
+color_scheme=0
+cpu_count_from_one=0
+delay=10
+detailed_cpu_time=1
+fields=0 48 17 18 38 39 40 2 46 47 49 1
+highlight_base_name=1
+highlight_changes=1
+highlight_megabytes=1
+highlight_threads=1
+left_meter_modes=2 2 2 2 2 2
+left_meters=DateTime Uptime Hostname System LoadAverage Tasks
+right_meter_modes=2 2 1 1 1 1
+right_meters=NetworkIO DiskIO Memory Swap CPU GPU
+tree_view=1
+tree_view_always_by_pid=1

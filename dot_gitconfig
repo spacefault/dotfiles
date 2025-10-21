@@ -1,0 +1,33 @@
+[alias]
+	br = "branch"
+	ci = "commit"
+	co = "checkout"
+	lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %aN%C(reset)%C(auto)%d%C(reset)' --all"
+	mg = "merge"
+	st = "status"
+
+[commit]
+	gpgSign = true
+
+[core]
+	editor = "nvim"
+
+[gpg]
+	format = "openpgp"
+
+[gpg "openpgp"]
+	program = "gpg"
+
+[init]
+	defaultBranch = "master"
+
+[pull]
+	rebase = true
+
+[tag]
+	gpgSign = true
+
+[user]
+	email = "74156492+spacefault@users.noreply.github.com"
+	name = "spacefault"
+	signingKey = "85AABA1FC9EC2A0A"
