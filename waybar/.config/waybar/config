@@ -25,7 +25,7 @@
       "escape": true,
       "exec": "swaync-client -swb",
       "exec-if": "which swaync-client",
-      "format": "{icon} {}",
+      "format": "{icon} {text}",
       "format-icons": {
         "dnd-inhibited-none": "󱙍 ",
         "dnd-inhibited-notification": "󱙍 ",
