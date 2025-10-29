@@ -1,4 +1,4 @@
-command = tmux 
+#command = tmux 
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = native
