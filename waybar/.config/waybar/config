@@ -25,7 +25,7 @@
       "escape": true,
       "exec": "swaync-client -swb",
       "exec-if": "which swaync-client",
-      "format": "{icon} {text}",
+      "format": "{icon} {0}",
       "format-icons": {
         "dnd-inhibited-none": "󱙍 ",
         "dnd-inhibited-notification": "󱙍 ",
@@ -41,21 +41,23 @@
       "return-type": "json",
       "tooltip": false
     },
-    "height": 24,
+    "height": 26,
     "hyprland/window": {
       "format": "{title}"
     },
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-        "activated": "󰒳  ",
-        "deactivated": "󰒲  "
+        "activated": "󰒳 ",
+        "deactivated": "󰒲 "
       }
     },
     "layer": "top",
     "modules-center": [],
     "modules-left": [
-      "hyprland/workspaces"
+      "hyprland/workspaces",
+      "hyprland/window",
+      "mpris"
     ],
     "modules-right": [
       "tray",

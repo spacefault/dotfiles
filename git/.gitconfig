@@ -6,17 +6,14 @@
 	mg = "merge"
 	st = "status"
 
-[commit]
-	gpgSign = true
-
 [core]
-	editor = "nvim"
+	editor = "emacs -nw"
 
 [gpg]
 	format = "openpgp"
 
 [gpg "openpgp"]
-	program = "gpg"
+	program = "/nix/store/0i1vlhh0ivpjc7dvxz77wr5csr9n9aak-gnupg-2.4.8/bin/gpg"
 
 [init]
 	defaultBranch = "master"
@@ -24,10 +21,10 @@
 [pull]
 	rebase = true
 
-[tag]
-	gpgSign = true
+[signing]
+	key = "85AABA1FC9EC2A0A"
+	signByDefault = true
 
 [user]
 	email = "74156492+spacefault@users.noreply.github.com"
 	name = "spacefault"
-	signingKey = "85AABA1FC9EC2A0A"
