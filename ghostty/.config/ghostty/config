@@ -3,4 +3,3 @@ macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = native
 theme = Adventure
-background-opacity = 0.8
