@@ -41,7 +41,7 @@
       "return-type": "json",
       "tooltip": false
     },
-    "height": 26,
+    "height": 24,
     "hyprland/window": {
       "format": "{title}"
     },
