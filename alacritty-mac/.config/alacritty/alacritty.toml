@@ -23,3 +23,7 @@ background = "0x000000"
 
 [window]
 dynamic_title = true
+
+[font]
+normal = { family = "Monaspace Radon", style = "Regular" }
+size = 13
