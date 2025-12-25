@@ -1,6 +1,4 @@
 autoload -U compinit && compinit
-# History options should be set in .zshrc and after oh-my-zsh sourcing.
-# See https://github.com/nix-community/home-manager/issues/177.
 HISTSIZE="1000000"
 SAVEHIST="1000000"
 
@@ -34,6 +32,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%B%F{243}%n %bon %B%m%f%b %B%F{197}%2~%f%b %B%F{39}$vcs_info_msg_0_%f%b> '
+path=($HOME/.bin $path)
 eval "$(~/.local/bin/mise activate)"
 
 if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
@@ -45,3 +44,4 @@ alias -- ip='ip --color'
 alias -- la='ls -lah --color'
 alias -- ls='ls --color'
 alias -- vim=nvim
+alias -- larpfetch=fastfetch

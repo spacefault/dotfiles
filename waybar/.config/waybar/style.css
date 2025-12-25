@@ -1,7 +1,7 @@
       * {
           border: none;
           border-radius: 0;
-          font-family: Noto Sans, Font Awesome;
+          font-family: Noto Sans;
           font-weight: normal;
           font-size: 14px;
           min-height: 0;
@@ -12,7 +12,7 @@
           color: #D8DEE9;
           transition-property: background-color;
           transition-duration: .5s;
-          font-size: 11px;
+          font-size: 14px;
           font-weight: normal;
       }
 

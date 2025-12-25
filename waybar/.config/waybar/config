@@ -64,9 +64,22 @@
       "idle_inhibitor",
       "custom/notification",
       "wireplumber",
+      "network",
       "battery",
       "clock"
     ],
+
+    "network": {
+    "format-wifi": "󰖩 Connected, ({signalStrength}%)",
+    "format-ethernet": "󰈀 Connected",
+    "format-disconnected": "󰈅 Disconnected", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+    },
+
     "mpris": {
       "format": "{player_icon} {title} - {artist}",
       "format-paused": "{status_icon} {title} - {artist}",
@@ -79,8 +92,8 @@
     },
     "position": "top",
     "wireplumber": {
-      "format": "   {volume}%",
-      "format-muted": "   {volume}%",
+      "format": "\uf028 {volume}%",
+      "format-muted": " {volume}%",
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-click-right": "pavucontrol",
       "tooltip": "true",
