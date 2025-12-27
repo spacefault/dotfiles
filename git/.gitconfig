@@ -7,7 +7,7 @@
 	st = "status"
 
 [core]
-	editor = "emacs -nw"
+	editor = "nvim"
 
 [gpg]
 	format = "openpgp"
