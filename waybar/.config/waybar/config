@@ -42,7 +42,7 @@
       "tooltip": false
     },
     "height": 24,
-    "niri/window": {
+    "hyprland/window": {
       "format": "{title}"
     },
     "idle_inhibitor": {
@@ -52,11 +52,14 @@
         "deactivated": "󰒲 "
       }
     },
+    "tray": {
+      "spacing": 5,
+    },
     "layer": "top",
     "modules-center": [],
     "modules-left": [
-      "niri/workspaces",
-      "niri/window",
+      "hyprland/workspaces",
+      "hyprland/window",
       "mpris"
     ],
     "modules-right": [
