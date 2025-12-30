@@ -11,9 +11,9 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(load-theme 'catppuccin :no-confirm)
-(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
-(catppuccin-reload)
+;(load-theme 'catppuccin :no-confirm)
+;(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
+;(catppuccin-reload)
 
 ;(require 'evil)
 ;(evil-mode 1)
@@ -23,6 +23,17 @@
 
 
 ; org confs
+
+(setq org-capture-templates
+      '(("c" "biweekly check-in" entry
+         (file "~/Documents/Planning/checkins.org")
+         "* %<%Y>\n** %<%V> | %<%b %d %Y>\n\n%?"
+         :jump-to-captured t
+         :unnarrowed t)))
+
+
+(global-set-key (kbd "C-c n c") #'org-capture)
+
 
      (setq org-roam-directory (expand-file-name "~/Documents/School/Notebox"))
       (org-roam-db-autosync-mode)
