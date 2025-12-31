@@ -1,11 +1,6 @@
 environment {
 }
 
-workspace "Internet"
-workspace "Programming"
-workspace "Games"
-workspace "Comms"
-
 input {
     keyboard {
         xkb {
@@ -168,7 +163,7 @@ spawn-at-startup "systemctl --user start polkit-gnome-authentication-agent-1.ser
 spawn-at-startup "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 spawn-at-startup "wlsunset -S 05:00 -s 19:00"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "ibus-daemon -drx"
+spawn-at-startup "fcitx5"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"
 
