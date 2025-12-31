@@ -1,6 +1,11 @@
 environment {
 }
 
+workspace "Internet"
+workspace "Programming"
+workspace "Games"
+workspace "Comms"
+
 input {
     keyboard {
         xkb {
