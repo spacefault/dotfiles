@@ -64,7 +64,7 @@ cursor {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "HDMI-A-1" {
+output "HDMI-A-1" {
     mode "1920x1080@100.000"
     scale 1
     transform "normal"
