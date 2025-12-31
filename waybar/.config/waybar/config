@@ -1,69 +1,26 @@
-{
-    "layer": "top",
-    "position": "top",
-    "modules-left": [ "niri/window", "mpris" ],
-    "modules-center": ["niri/workspaces"],
-    "modules-right": ["custom/notification", "tray", "cpu", "temperature", "wireplumber", "network", "clock"],
-    "niri/workspaces": {
-        "format": "{value}",
-    },
-    "niri/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "niri/window": {
-        "format": "{}",
-        "max-length": 50, 
-        "tooltip": false
-    },
- 
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip": "true"
-    },
-    "tray": {
-        //"icon-size": 11,
-        "spacing": 5
+[
+  {
+    "battery": {
+      "bat": "BAT0",
+      "format": "{icon} {capacity}%",
+      "format-charging": "{icon} {capacity}% (Charging)",
+      "format-icons": [
+        "󰁻",
+        "󰁽",
+        "󰁿",
+        "󰂁",
+        "󰁹"
+      ],
+      "interval": 1,
+      "states": {
+        "critical": 10,
+        "warning": 20
+      }
     },
     "clock": {
-        "format": "  {:%I:%M %p   %a %b %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "today-format": "<b>{}</b>",
-        "on-click": "gnome-calendar"
+      "format": "{:%a %b %d %I:%M %p}",
+      "tooltip-format": "<tt><big>{calendar}</big></tt>"
     },
-    "cpu": {
-        "interval": "1",      
-        "format": "  {max_frequency}GHz <span color=\"darkgray\"> {usage}%</span>",
-        "max-length": 13,
-        "min-length": 13,
-        "tooltip": false
-    },
-    "temperature": {
-        //"thermal-zone": 1,
-        "interval": "4",
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-        "critical-threshold": 74,
-        "format-critical": "  {temperatureC}°C",
-        "format": "{icon}  {temperatureC}°C",
-        "format-icons": ["", "", ""],
-        "max-length": 7,
-        "min-length": 7
-    },
-    "network": {
-    "format-wifi": "󰖩 Connected, ({signalStrength}%)",
-    "format-ethernet": "󰈀 Connected",
-    "format-disconnected": "󰈅 Disconnected", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-wifi": "{essid}",
-    "tooltip-format-ethernet": "{ifname}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
-    },
-
     "custom/notification": {
       "escape": true,
       "exec": "swaync-client -swb",
@@ -84,16 +41,48 @@
       "return-type": "json",
       "tooltip": false
     },
-
-    "wireplumber": {
-      "format": "\uf028 {volume}%",
-      "format-muted": " {volume}%",
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-      "on-click-right": "pavucontrol",
-      "tooltip": "true",
-      "tooltip-format": "{volume}%"
+    "height": 24,
+    "niri/window": {
+      "format": "{title}"
     },
-    
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "󰒳 ",
+        "deactivated": "󰒲 "
+      }
+    },
+    "tray": {
+      "spacing": 5,
+    },
+    "layer": "top",
+    "modules-center": [],
+    "modules-left": [
+      "niri/workspaces",
+      "niri/window",
+      "mpris"
+    ],
+    "modules-right": [
+      "tray",
+      "idle_inhibitor",
+      "custom/notification",
+      "wireplumber",
+      "network",
+      "battery",
+      "clock"
+    ],
+
+    "network": {
+    "format-wifi": "󰖩 Connected, ({signalStrength}%)",
+    "format-ethernet": "󰈀 Connected",
+    "format-disconnected": "󰈅 Disconnected", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+    },
+
     "mpris": {
       "format": "{player_icon} {title} - {artist}",
       "format-paused": "{status_icon} {title} - {artist}",
@@ -104,10 +93,14 @@
         "paused": "⏸"
       }
     },
-
-    "custom/weather": {
-        "exec": "curl 'https://wttr.in/?format=1'",
-        "interval": 3600
-    },
-   
-}
+    "position": "top",
+    "wireplumber": {
+      "format": "\uf028 {volume}%",
+      "format-muted": " {volume}%",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-click-right": "pavucontrol",
+      "tooltip": "true",
+      "tooltip-format": "{volume}%"
+    }
+  }
+]
