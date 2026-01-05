@@ -4,6 +4,7 @@ environment {
 input {
     keyboard {
         xkb {
+		options "caps:ctrl_modifier"
         }
     }
 
@@ -155,14 +156,14 @@ layout {
 }
 
 spawn-at-startup "waybar"
-spawn-at-startup "wl-paste --type text --watch cliphist store"
-spawn-at-startup "wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "udiskie --appindicator --automount"
-spawn-at-startup "systemctl --user start polkit-gnome-authentication-agent-1.service"
-spawn-at-startup "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
-spawn-at-startup "wlsunset -S 05:00 -s 19:00"
-spawn-at-startup "swww-daemon"
+spawn-sh-at-startup "udiskie --appindicator --automount"
+spawn-sh-at-startup "systemctl --user start polkit-gnome-authentication-agent-1.service"
+spawn-sh-at-startup "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
+spawn-sh-at-startup "wlsunset -S 05:00 -s 19:00"
+spawn-sh-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"
@@ -228,6 +229,8 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
+    Mod+Y repeat=false {spawn "wlogout"; }
+    Mod+X repeat=false {spawn-sh "swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --grace 2 --fade-in 0.2"; }
 
     Mod+Q repeat=false { close-window; }
 

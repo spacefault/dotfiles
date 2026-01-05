@@ -3,19 +3,39 @@
     "position": "top",
     "modules-left": [ "niri/window", "mpris" ],
     "modules-center": ["niri/workspaces"],
-    "modules-right": ["custom/notification", "tray", "cpu", "temperature", "wireplumber", "network", "clock"],
+    "modules-right": ["privacy", "custom/notification", "tray", "cpu", "temperature", "wireplumber", "network", "clock"],
     "niri/workspaces": {
-        "format": "{value}",
+        "format": "{value}"
     },
     "niri/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+
     "niri/window": {
         "format": "{}",
         "max-length": 50, 
         "tooltip": false
     },
- 
+
+"privacy": {
+	"icon-spacing": 2,
+	"icon-size": 13,
+	"transition-duration": 250,
+	"modules": [
+		{
+			"type": "screenshare",
+			"tooltip": true,
+		},
+		{
+			"type": "audio-out",
+			"tooltip": true,
+		},
+		{
+			"type": "audio-in",
+			"tooltip": true
+		}
+	],
+},
 
     "idle_inhibitor": {
         "format": "{icon}",
@@ -37,19 +57,19 @@
     },
     "cpu": {
         "interval": "1",      
-        "format": "  {max_frequency}GHz <span color=\"darkgray\"> {usage}%</span>",
-        "max-length": 13,
-        "min-length": 13,
+        "format": "{max_frequency}GHz <span color=\"darkgray\"> {usage}%</span>",
+        "max-length": 15,
+        "min-length": 15,
         "tooltip": false
     },
     "temperature": {
         //"thermal-zone": 1,
         "interval": "4",
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "critical-threshold": 74,
         "format-critical": "  {temperatureC}°C",
         "format": "{icon}  {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format-icons": [""],
         "max-length": 7,
         "min-length": 7
     },
@@ -97,6 +117,7 @@
     "mpris": {
       "format": "{player_icon} {title} - {artist}",
       "format-paused": "{status_icon} {title} - {artist}",
+      "max-length": 50,
       "player-icons": {
         "default": " "
       },

@@ -87,7 +87,9 @@
 #language,
 #mpris,
 #custom-notification, 
-#window {
+#window, 
+#privacy,
+#privacy-item {
     padding-left: 0.6em;
     padding-right: 0.6em;
     border-radius: 3px;
@@ -289,3 +291,9 @@
 #tray {
     background: @nord_bg;
 }
+
+#privacy,
+#privacy-item {
+    background: @nord_bg;
+    padding: 0.5px;
+} 
