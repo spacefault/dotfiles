@@ -16,7 +16,7 @@
 	program = "/nix/store/0i1vlhh0ivpjc7dvxz77wr5csr9n9aak-gnupg-2.4.8/bin/gpg"
 
 [init]
-	defaultBranch = "master"
+	defaultBranch = "a"
 
 [pull]
 	rebase = true
