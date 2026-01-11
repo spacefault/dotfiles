@@ -150,29 +150,33 @@
 
 #workspaces {
     color: #ffffff;
-    margin-right: 10px;
+    padding: 0;
 }
+
 
 #workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
     padding: 0;
+    margin: 0;
     color: #ffffff;
     background: none;
-    font-size: 1em;
+    font-weight: bold;
 }
 
-#workspaces button.focused {
+ #workspaces button.focused {
     background: @workspacesfocused;
     color: #D8DEE9;
     opacity: 1;
-    padding: 0 0.4em;
 }
+
+
 
 #workspaces button.urgent {
     border-color: #c9545d;
     color: #c9545d;
     opacity: 1;
 }
+
+
 
 #bluetooth {
     background: @nord_bg_blue;
@@ -292,8 +296,7 @@
     background: @nord_bg;
 }
 
-#privacy,
-#privacy-item {
+#privacy {
     background: @nord_bg;
-    padding: 0.5px;
+    padding: 0px;
 } 
