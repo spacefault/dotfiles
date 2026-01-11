@@ -18,12 +18,16 @@
     },
 
 "privacy": {
-	"icon-spacing": 0,
-	"icon-size": 11,
+	"icon-spacing": 2,
+	"icon-size": 13,
 	"transition-duration": 250,
 	"modules": [
 		{
 			"type": "screenshare",
+			"tooltip": true,
+		},
+		{
+			"type": "audio-out",
 			"tooltip": true,
 		},
 		{
@@ -55,7 +59,7 @@
         "interval": "1",      
         "format": "{max_frequency}GHz <span color=\"darkgray\"> {usage}%</span>",
         "max-length": 15,
-        //"min-length": 15,
+        "min-length": 15,
         "tooltip": false
     },
     "temperature": {
@@ -115,7 +119,7 @@
       "format-paused": "{status_icon} {title} - {artist}",
       "max-length": 50,
       "player-icons": {
-        "default": ""
+        "default": " "
       },
       "status-icons": {
         "paused": "⏸"
