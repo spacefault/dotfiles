@@ -2,7 +2,7 @@ autoload -U compinit && compinit
 HISTSIZE="1000000"
 SAVEHIST="1000000"
 
-HISTFILE="/home/devin/.zsh_history"
+#HISTFILE="/home/devin/.zsh_history"
 #mkdir -p "$(dirname "$HISTFILE")"
 
 setopt HIST_FCNTL_LOCK
