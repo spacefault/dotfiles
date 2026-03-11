@@ -171,6 +171,7 @@ spawn-sh-at-startup "swww-daemon"
 spawn-at-startup "fcitx5"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"
+spawn-sh-at-startup "steam"
 
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
