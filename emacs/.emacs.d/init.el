@@ -17,7 +17,7 @@
 
 ;(require 'evil)
 ;(evil-mode 1)
-(require 'nix-mode)
+;(require 'nix-mode)
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 (require 'org-roam)
 
