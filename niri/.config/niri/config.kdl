@@ -2,6 +2,7 @@ environment {
 	CALIBRE_USE_SYSTEM_THEME "1"
 	XMODIFIERS "@im=fcitx"
 	QT_IM_MODULE "fcitx"
+	QT_QPA_PLATFORMTHEME "qt6ct"
 }
 
 input {
@@ -67,17 +68,14 @@ output "HDMI-A-1" {
     mode "1920x1080@100.000"
     scale 1
     transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
     position x=0 y=0
+}
+
+output "DP=1" {
+	mode "1920x1080@75.000"
+	scale 1
+	transform "normal"
+	position x=1920 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -158,6 +156,7 @@ layout {
     }
 }
 
+spawn-sh-at-startup "gentoo-pipewire-launcher restart"
 spawn-at-startup "waybar"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
