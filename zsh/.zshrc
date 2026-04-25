@@ -53,3 +53,4 @@ alias -- vim=nvim
 alias -- larpfetch=fastfetch
 export EDITOR=nvim
 export VISUAL=nvim
+alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -s'

@@ -190,6 +190,13 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="steam" 
+    match title="Friends List"
+    default-column-width { fixed 343; }
+    //width 343
+}
+
 // block apps from screen
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
