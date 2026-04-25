@@ -1,3 +1,13 @@
+if command -v brew >/dev/null 2>&1; then
+  brew_prefix=$(brew --prefix)
+  if [ -d "$brew_prefix/share/zsh/site-functions" ]; then
+    fpath=($brew_prefix/share/zsh/site-functions $fpath)
+  fi
+fi
+
+autoload -Uz compinit
+compinit
+
 autoload -U compinit && compinit
 HISTSIZE="1000000"
 SAVEHIST="1000000"
@@ -41,3 +51,5 @@ alias -- la='ls -lah --color'
 alias -- ls='ls --color'
 alias -- vim=nvim
 alias -- larpfetch=fastfetch
+export EDITOR=nvim
+export VISUAL=nvim
