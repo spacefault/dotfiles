@@ -21,6 +21,9 @@ yellow = "0xb26818"
 [colors.primary]
 background = "0x000000"
 
+[terminal.shell]
+program = "tmux"
+
 [window]
 dynamic_title = true
 opacity = 0.8

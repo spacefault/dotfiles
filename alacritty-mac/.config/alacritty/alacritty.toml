@@ -24,6 +24,9 @@ background = "0x000000"
 [window]
 dynamic_title = true
 
+[terminal.shell]
+program = "tmux"
+
 [font]
 normal = { family = "Monaspace Radon", style = "Regular" }
 size = 13
