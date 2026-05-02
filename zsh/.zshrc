@@ -51,6 +51,8 @@ alias -- la='ls -lah --color'
 alias -- ls='ls --color'
 alias -- vim=nvim
 alias -- larpfetch=fastfetch
+
 export EDITOR=nvim
 export VISUAL=nvim
 alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -s'
+export PATH="/Users/devin/Developer/clones/googlesource/depot_tools:$PATH"
