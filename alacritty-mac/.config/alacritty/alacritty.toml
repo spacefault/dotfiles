@@ -26,6 +26,7 @@ dynamic_title = true
 
 [terminal.shell]
 program = "/opt/homebrew/bin/tmux"
+args = ["new-session", "-A", "-s", "main", "-t", "main"]
 
 [font]
 normal = { family = "Monaspace Radon", style = "Regular" }

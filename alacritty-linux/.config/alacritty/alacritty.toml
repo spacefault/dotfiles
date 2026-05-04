@@ -23,6 +23,7 @@ background = "0x000000"
 
 [terminal.shell]
 program = "tmux"
+args = ["new-session", "-A", "-s", "main", "-t", "main"]
 
 [window]
 dynamic_title = true
