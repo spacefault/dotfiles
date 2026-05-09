@@ -12,8 +12,10 @@ autoload -U compinit && compinit
 HISTSIZE="1000000"
 SAVEHIST="1000000"
 
-#HISTFILE="/home/devin/.zsh_history"
-#mkdir -p "$(dirname "$HISTFILE")"
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
 
 setopt HIST_FCNTL_LOCK
 
@@ -57,3 +59,5 @@ export VISUAL=nvim
 alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -s'
 
 export PATH="/Users/devin/Developer/clones/googlesource/depot_tools:$PATH"
+
+eval "$(direnv hook zsh)"
