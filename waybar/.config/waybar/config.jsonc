@@ -1,120 +1,121 @@
-[
-  {
-    "battery": {
-      "bat": "BAT0",
-      "format": "{icon} {capacity}%",
-      "format-charging": "{icon} {capacity}% (Charging)",
-      "format-icons": [
-        "󰁻",
-        "󰁽",
-        "󰁿",
-        "󰂁",
-        "󰁹"
-      ],
-      "interval": 1,
-      "states": {
-        "critical": 10,
-        "warning": 20
-      }
-    },
-    "clock": {
-      "format": "{:%a %b %d, %I:%M %p}",
-      "tooltip-format": "<tt><big>{calendar}</big></tt>"
-    },
-    "custom/notification": {
-      "escape": true,
-      "exec": "swaync-client -swb",
-      "exec-if": "which swaync-client",
-      "format": "{icon} {0}",
-      "format-icons": {
-        "dnd-inhibited-none": "󱙍 ",
-        "dnd-inhibited-notification": "󱙍 ",
-        "dnd-none": "󱙍 ",
-        "dnd-notification": "󱙍 ",
-        "inhibited-none": "󰍡 ",
-        "inhibited-notification": "󱥁 ",
-        "none": "󰍡 ",
-        "notification": "󱥁 "
-      },
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "return-type": "json",
-      "tooltip": false
-    },
-    "height": 24,
-    "niri_window": {
-      "format": "{title}",
-      "max-length": 50
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "󰒳 ",
-        "deactivated": "󰒲 "
-      }
-    },
-    "tray": {
-      "spacing": 5
-    },
+// ╔══════════════════════════════════════════════════════════╗
+// ║                  Waybar · config.jsonc                   ║
+// ╚══════════════════════════════════════════════════════════╝
+{
+  // ── Bar geometry ──────────────────────────────────────────
+  "layer":     "top",
+  "position":  "top",
+  "passthrough": false,
 
-    "privacy": {
-	"icon-spacing": 5,
-	"icon-size": 12,
-	"transition-duration": 250,
-	"modules": [
-		{
-			"type": "screenshare",
-			"tooltip": true,
-			"tooltip-icon-size": 24
-		},
-		{
-			"type": "audio-in",
-			"tooltip": true,
-			"tooltip-icon-size": 24
-		}
-	],
-},
+  "height":      32,
+  "spacing":      10,
 
-    "layer": "top",
-    "modules-center": [],
-    "modules-left": [
-      "niri/workspaces",
-      "niri/window",
-      "mpris"
-    ],
-    "modules-right": [
-      "privacy",
-      "tray",
-      "custom/notification",
-      "wireplumber",
-      "network",
-      "battery",
-      "clock"
-    ],
+  "margin-top":    5,
+  "margin-left":   5,
+  "margin-right":  5,
 
-    "network": {
-    "format-wifi": "󰖩 Connected, ({signalStrength}%)",
-    "format-ethernet": "󰈀 Connected",
-    "format-disconnected": "󰈅 Disconnected", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-wifi": "{essid}",
-    "tooltip-format-ethernet": "{ifname}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
+  // ── Layout ────────────────────────────────────────────────
+  "modules-left": [
+    "niri/workspaces"
+  ],
+
+  "modules-center": [
+    "custom/search"
+  ],
+
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "disk",
+    "wireplumber",
+    "network",
+    "battery",
+    "clock"
+  ],
+
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  LEFT                                                    ║
+  // ╚══════════════════════════════════════════════════════════╝
+
+  // ── CPU ───────────────────────────────────────────────────
+  "cpu": {
+    "interval":  2,
+    "format":    "󰍛 {usage}%",
+    "tooltip":   false,
+    "on-click":  "kitty --class btop-float -e btop"
+  },
+
+  // ── Memory ────────────────────────────────────────────────
+  "memory": {
+    "interval":      5,
+    "format":        "󰘚 {percentage}%",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+    "on-click":      "kitty --class btop-float -e btop"
+  },
+  // ── Disk (Storage) ────────────────────────────────────────
+  "disk": {
+    "interval": 30,
+    "path": "/", 
+    "format": "󰋊 {percentage_used}%",
+    "tooltip-format": "{used} / {total} ({percentage_free}% free)",
+    "on-click": "kitty --class btop-float -e btop" 
+  },
+  // ── MPRIS (Media Player) ─────────────────────────────────
+  "mpris": {
+    "format": "{player_icon}    {status_icon}  ",
+    "format-paused": "{player_icon}    {status_icon}  ",
+    "format-playing": "{player_icon}    {status_icon}  ",
+
+    "player-icons": {
+        "spotify": "",
+        "firefox": "󰈹",
+        "mpv": "󰐹",
+        "default": "󰎆"
     },
-
-    "mpris": {
-      "format": "{player_icon} {title} - {artist}",
-      "format-paused": "{status_icon} {title} - {artist}",
-    "max-length": 50,
-      "player-icons": {
-        "default": " "
-      },
-      "status-icons": {
-        "paused": "⏸"
-      }
+    "status-icons": {
+        "playing": "",
+        "paused": "",
+        "stopped": ""
     },
-    "position": "top",
+    "tooltip": false,
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next"
+  },
+  // ── Workspaces ────────────────────────────────────────────
+  "niri/workspaces": {
+    "all-outputs": false,
+    "format": "{value}",
+    "format-icons": {
+      "active":  "●",
+      "default": "○"
+    }
+  },
+
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  CENTER                                                  ║
+  // ╚══════════════════════════════════════════════════════════╝
+
+  // ── Search ────────────────────────────────────────────────
+  "custom/search": {
+    "format":   "󰍉 Search",
+    "tooltip":  false,
+    "on-click": "fuzzel --no-icons"
+  },
+
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║  RIGHT                                                   ║
+  // ╚══════════════════════════════════════════════════════════╝
+
+  // ── System tray ───────────────────────────────────────────
+  "tray": {
+      "icon-size": 12,
+      "spacing": 10
+  },
+
+  // ── Audio ─────────────────────────────────────────────────
+
     "wireplumber": {
       "format": "\uf028 {volume}%",
       "format-muted": " {volume}%",
@@ -122,6 +123,51 @@
       "on-click-right": "pavucontrol",
       "tooltip": "true",
       "tooltip-format": "{volume}%"
+    },
+
+
+  // ── Network ───────────────────────────────────────────────
+  "network": {
+    "format-wifi":        "{icon} Connected",
+    "format-ethernet":    "󰲝 Connected",
+    "format-disconnected": "󰤫 Disconnected!",
+    "format-icons":       ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi":        "{essid} · {signalStrength}%\n{ipaddr}",
+    "tooltip-format-ethernet":    "{ifname} · {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+  },
+
+  // ── Battery ───────────────────────────────────────────────
+  "battery": {
+    "interval":   30,
+    "states": {
+      "warning":  30,
+      "critical": 15
+    },
+    "format":          "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged":  "󰚥 {capacity}%",
+    "format-icons": [
+      "󰁺","󰁻","󰁼","󰁽","󰁾",
+      "󰁿","󰂀","󰂁","󰂂","󰁹"
+    ],
+    "tooltip-format": "{timeTo}\n{power}W"
+  },
+
+  // ── Clock ─────────────────────────────────────────────────
+  "clock": {
+    "format":     "{:%H:%M}",
+    "format-alt": "{:%a, %d %b %Y}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode":         "month",
+      "mode-mon-col": 3,
+      "format": {
+        "months":   "<span color='#f9e2af'><b>{}</b></span>",
+        "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+        "today":    "<span background='#f38ba870'><b><u>{}</u></b></span>"
+      }
     }
   }
-]
+}
+
