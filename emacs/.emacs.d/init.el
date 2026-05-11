@@ -23,6 +23,9 @@
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 (require 'org-roam)
 
+(set-face-attribute 'default nil
+                    :font "Monaspace Radon")
+
 
 ; org confs
 
