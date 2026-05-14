@@ -1,17 +1,16 @@
 ; init
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(setq org-startup-indented t)
-(column-number-mode)
-(display-time-mode)
-(display-battery-mode)
+; see early-init.el for pre-load options
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
 
 (setq package-install-upgrade-built-in t)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+
 
 ;(load-theme 'catppuccin :no-confirm)
 ;(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
@@ -20,12 +19,9 @@
 ;(require 'evil)
 ;(evil-mode 1)
 ;(require 'nix-mode)
+(require 'rust-mode)
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 (require 'org-roam)
-
-(set-face-attribute 'default nil
-                    :font "Monaspace Radon")
-
 
 ; org confs
 
@@ -53,24 +49,5 @@
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Menlo" :weight 'bold :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Monaspace Radon" :weight 'bold :height (cdr face)))
 (add-hook 'org-mode-hook 'variable-pitch-mode)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(variable-pitch ((t (:family "Menlo")))))
-
-; melpa
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("f9d423fcd4581f368b08c720f04d206ee80b37bfb314fa37e279f554b6f415e9"
-     default))
- '(package-selected-packages '(catppuccin-theme magit nix-mode org-roam)))
-
