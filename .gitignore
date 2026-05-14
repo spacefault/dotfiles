@@ -1,11 +1,17 @@
 # ignore
-emacs/
 htop/.config/htop/htop_history
-
-# explicitly allow
-!emacs/emacs.d/init.el
-!emacs/emacs.d/early-init.el
-!emacs/emacs.d/custom.el
+emacs/.emacs.d/auto-save-list/
+emacs/.emacs.d/eln-cache/
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/intelephense/
+emacs/.emacs.d/lsp-cache/
+emacs/.emacs.d/racket-mode/
+emacs/.emacs.d/transient/
+emacs/.emacs.d/url/
+emacs/.emacs.d/.lsp-session-v1
+#emacs/.emacs.d/custom.el
+emacs/.emacs.d/tramp
+emacs/.emacs.d/org-roam.db
 
 # system files
 *~
