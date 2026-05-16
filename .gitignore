@@ -12,6 +12,8 @@ emacs/.emacs.d/.lsp-session-v1
 #emacs/.emacs.d/custom.el
 emacs/.emacs.d/tramp
 emacs/.emacs.d/org-roam.db
+emacs/.emacs.d/games/
+emacs/.emacs.d/history
 
 # system files
 *~

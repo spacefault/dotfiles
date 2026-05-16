@@ -4,9 +4,9 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
-
 (setq package-install-upgrade-built-in t)
 
+; melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -16,14 +16,21 @@
 ;(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
 ;(catppuccin-reload)
 
-;(require 'evil)
-;(evil-mode 1)
-;(require 'nix-mode)
+(add-hook 'rust-mode-hook 'lsp-deferred)
 (require 'rust-mode)
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 (require 'org-roam)
 
-; org confs
+
+;; stop lsp from using emojis, like the lightbulb emoji for warnings
+(setq lsp-modeline-code-actions-enable t)
+(setq lsp-modeline-code-action-fallback-icon "Code Actions Available")
+(setq lsp-modeline-code-actions-segments '(count icon))
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq lsp-modeline-diagnostics-enable t)
+(setq lsp-modeline-diagnostics-scope :workspace)
+
+
 
 (setq org-capture-templates
       '(("c" "biweekly check-in" entry
