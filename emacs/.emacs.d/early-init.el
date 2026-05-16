@@ -13,6 +13,9 @@
 (display-time-mode)
 (display-battery-mode)
 (savehist-mode 1)
+(recentf-mode 1)
+(save-place-mode 1)
+(global-auto-revert-mode 1)
 
 (setq history-length 1000)
 (setq savehist-additional-variables
