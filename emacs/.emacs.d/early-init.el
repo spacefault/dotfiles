@@ -24,4 +24,6 @@
         regexp-search-ring))
 
 (add-to-list 'default-frame-alist
-             '(font . "Monaspace Radon-12"))
+             `(font . ,(if (eq system-type 'darwin)
+                           "Monaspace Radon-12"
+                         "Monaspace Radon-10")))
