@@ -9,6 +9,3 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 (load-file "~/.emacs.d/packages.el")
-
-(require 'packages)
-
