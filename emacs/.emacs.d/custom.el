@@ -6,9 +6,7 @@
  '(custom-safe-themes
    '("f9d423fcd4581f368b08c720f04d206ee80b37bfb314fa37e279f554b6f415e9"
      default))
- '(package-selected-packages
-   '(catppuccin-theme lsp-mode magit nix-mode org-roam rust-mode
-		      yasnippet)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

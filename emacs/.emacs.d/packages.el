@@ -25,6 +25,8 @@
 ;;  (setq catppuccin-flavor 'latte)
 ;;  (load-theme 'catppuccin t))
 
+;; olivetti
+
 ;; lsp (lsp-mode)
 
 (use-package lsp-mode
@@ -37,6 +39,10 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-modeline-diagnostics-enable t)
   (lsp-modeline-diagnostics-scope :workspace))
+
+;; olivetti
+
+(use-package olivetti)
 
 ;; rust-mode
 
