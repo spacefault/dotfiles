@@ -25,6 +25,7 @@
 
   "modules-right": [
     "tray",
+    "temperature",
     "cpu",
     "memory",
     "disk",
@@ -125,6 +126,14 @@
       "tooltip-format": "{volume}%"
     },
 
+      "temperature": {
+      //"thermal-zone": 2,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
+  },
+
 
   // ── Network ───────────────────────────────────────────────
   "network": {
@@ -156,7 +165,7 @@
 
   // ── Clock ─────────────────────────────────────────────────
   "clock": {
-    "format":     "{:%H:%M}",
+    "format":     "{:%I:%M %p}",
     "format-alt": "{:%a, %d %b %Y}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {

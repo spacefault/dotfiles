@@ -46,6 +46,9 @@ setopt PROMPT_SUBST
 PROMPT='%B%F{243}%n %bon %B%m%f%b %B%F{197}%2~%f%b %B%F{39}$vcs_info_msg_0_%f%b> '
 path=($HOME/.bin $path)
 
+if [[ -n "$FLAKE_SHELL" ]]; then
+  PROMPT="%B%F{green}[flake shell]%f%b $PROMPT"
+fi
 
 alias -- grep='grep --color'
 alias -- ip='ip --color'

@@ -191,6 +191,7 @@ window#waybar {
 #bluetooth,
 #network,
 #battery,
+#temperature,
 #clock {
   color:   @fg-dim;
   padding: 0 5px;
@@ -221,6 +222,10 @@ window#waybar {
 /* Network */
 #network:hover                { color: @accent; }
 #network.disconnected         { color: @red;    }
+
+/* Temps */
+#temperature.warning	{ color: @yellow; }
+#temperature.critical { color: @red; }
 
 /* Battery */
 #battery.charging,
