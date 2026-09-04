@@ -85,7 +85,7 @@
   :after org
   :custom
   (org-roam-directory
-   (expand-file-name "~/Documents/School/Notebox"))
+   (expand-file-name "~/School/Notebox"))
 
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)

@@ -6,6 +6,7 @@
  '(custom-safe-themes
    '("f9d423fcd4581f368b08c720f04d206ee80b37bfb314fa37e279f554b6f415e9"
      default))
+ '(org-agenda-files '("~/School/"))
  '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
