@@ -65,7 +65,7 @@ cursor {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "HDMI-A-1" {
-    mode "1920x1080@60.000"
+    mode "1920x1080@100.000"
     scale 1
     transform "normal"
     position x=0 y=0
@@ -149,14 +149,12 @@ layout {
     }
 }
 
-spawn-sh-at-startup "gentoo-pipewire-launcher restart"
 spawn-at-startup "waybar"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "blueman-applet"
-spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-sh-at-startup "udiskie --appindicator --automount"
-spawn-sh-at-startup "systemctl --user start polkit-gnome-authentication-agent-1.service"
 spawn-sh-at-startup "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 spawn-sh-at-startup "wlsunset -S 05:00 -s 19:00"
 spawn-sh-at-startup "swww-daemon"
