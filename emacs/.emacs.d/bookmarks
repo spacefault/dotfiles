@@ -3,9 +3,9 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/Documents/School/Notebox/20260902155338-unit1overview.org")
- (front-context-string . "\n* Unit 1 Overvi")
- (rear-context-string . ": Unit1Overview\n")
- (position . 91)
- (last-modified 27288 39679 968467 0))
+ (filename . "~/School/Notebox/20260914103132-screen_time_project_part_1_planning.org")
+ (front-context-string . "* Part 1 plannin")
+ (rear-context-string . "Part 1 Planning\n")
+ (position . 113)
+ (last-modified 27304 8708 421155 0))
 )

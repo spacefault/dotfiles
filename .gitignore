@@ -16,6 +16,8 @@ emacs/.emacs.d/games/
 emacs/.emacs.d/history
 emacs/.emacs.d/places
 emacs/.emacs.d/recentf
+emacs/.emacs.d/newsticker
+emacs/.emacs.d/tutorial
 
 # system files
 *~

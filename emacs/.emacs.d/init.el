@@ -9,3 +9,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 (load-file "~/.emacs.d/packages.el")
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'latex-mode-hook 'turn-on-reftex)
+(add-hook 'TeX-mode-hook 'turn-on-reftex)

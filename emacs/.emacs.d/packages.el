@@ -18,17 +18,7 @@
 
 (setq use-package-always-ensure t)
 
-;; themes
-;;
-;;(use-package catppuccin-theme
-;;  :config
-;;  (setq catppuccin-flavor 'latte)
-;;  (load-theme 'catppuccin t))
-
-;; olivetti
-
 ;; lsp (lsp-mode)
-
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :custom
@@ -41,17 +31,15 @@
   (lsp-modeline-diagnostics-scope :workspace))
 
 ;; olivetti
-
-(use-package olivetti)
+(use-package olivetti
+  :defer t)
 
 ;; rust-mode
-
 (use-package rust-mode
   :mode "\\.rs\\'"
   :hook (rust-mode . lsp-deferred))
 
 ;; org
-
 (use-package org
   :custom
   (org-capture-templates
@@ -80,7 +68,6 @@
      :height (cdr face))))
 
 ;; org-roam
-
 (use-package org-roam
   :after org
   :custom
@@ -94,5 +81,59 @@
 
   :config
   (org-roam-db-autosync-mode))
+
+
+;; newsticker
+(use-package newsticker
+  :ensure nil
+  :defer t
+  :init
+
+  (setq newsticker-url-list
+        '(("jwz" "https://cdn.jwz.org/blog/feed/")
+          ("FSF News" "https://fsf.org")
+          ("XKCD" "https://xkcd.com")))
+
+  :config
+  (setq newsticker-retrieval-interval 3600
+        newsticker-desc-no-html t
+        newsticker-automatically-mark-items-as-old nil)
+
+  (setq newsticker-frontend 'newsticker-treeview)
+
+  :bind
+  (("C-c n s" . newsticker-show-news)
+   ("C-c n g" . newsticker-get-all-news)))
+
+;; auctex config
+(use-package auctex
+  :ensure t
+  :defer t
+  :hook (LaTeX-mode-hook . turn-on-reftex)
+  :config
+  (setq-default TeX-engine 'default)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (setq TeX-command-force "" TeX-clean-confirm nil)
+  (with-eval-after-load 'tex
+    (add-to-list 'TeX-command-list
+                 '("Biber" "biber %s" TeX-run-command nil t :help "Run Biber") t)))
+  
+(use-package reftex
+  :defer t
+  :config
+  (setq reftex-plug-into-AUCTeX t)
+  
+  (setq bibtex-dialect 'biblatex)
+  
+  (setq LaTeX-reftex-cite-format-auto-activate nil)
+  (setq reftex-cite-extra-args t)
+  
+  (setq reftex-cite-format
+        '((?a . "\\autocite{%l}")    ; Standard parenthetical: (Smith 42)  - hit 'a' inside RefTeX
+          (?t . "\\textcite{%l}")    ; Narrative citation: Smith (42)      - hit 't' inside RefTeX
+          (?f . "\\footcite{%l}")    ; Footnote citation if needed         - hit 'f' inside RefTeX
+          (?d . "\\cite{%l}"))))     ; Default standard cite               - hit d in reftex
 
 ;;(provide 'packages)
