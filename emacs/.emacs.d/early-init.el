@@ -1,4 +1,4 @@
-;; early init
+;; early init  -*- lexical-binding: t; -*-
 
 (setq frame-resize-pixelwise t)
 
