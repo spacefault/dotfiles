@@ -10,7 +10,7 @@
 	editor = "nvim"
 
 [gpg]
-	format = "openpgp"
+	format = ssh
 
 [init]
 	defaultBranch = "a"
@@ -18,10 +18,9 @@
 [pull]
 	rebase = true
 
-[signing]
-	key = "85AABA1FC9EC2A0A"
-	signByDefault = true
-
 [user]
 	email = "74156492+spacefault@users.noreply.github.com"
 	name = "spacefault"
+	signingkey = /Users/devin/.ssh/gitsigning.pub
+[commit]
+	gpgsign = true
