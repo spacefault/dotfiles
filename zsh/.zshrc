@@ -1,3 +1,4 @@
+# init brew
 if command -v brew >/dev/null 2>&1; then
   brew_prefix=$(brew --prefix)
   if [ -d "$brew_prefix/share/zsh/site-functions" ]; then
@@ -5,39 +6,19 @@ if command -v brew >/dev/null 2>&1; then
   fi
 fi
 
-autoload -Uz compinit
-compinit
-
+# load completions
 autoload -U compinit && compinit
+
+# history settings
 HISTSIZE="1000000"
 SAVEHIST="1000000"
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory
+setopt inc_append_history
+setopt share_history
 
-setopt HIST_FCNTL_LOCK
-
-# Enabled history options
-enabled_opts=(
-  APPEND_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
-)
-for opt in "${enabled_opts[@]}"; do
-  setopt "$opt"
-done
-unset opt enabled_opts
-
-# Disabled history options
-disabled_opts=(
-  EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_FIND_NO_DUPS HIST_IGNORE_ALL_DUPS
-  HIST_SAVE_NO_DUPS
-)
-for opt in "${disabled_opts[@]}"; do
-  unsetopt "$opt"
-done
-unset opt disabled_opts
-
+# Prompt settings
 DISABLE_AUTO_TITLE=false
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -50,21 +31,22 @@ if [[ -n "$FLAKE_SHELL" ]]; then
   PROMPT="%B%F{green}[flake shell]%f%b $PROMPT"
 fi
 
+# aliases
 alias -- grep='grep --color'
 alias -- ip='ip --color'
 alias -- la='ls -lah --color'
 alias -- ls='ls --color'
 alias -- vim=nvim
+alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -sv'
 
 # tmux aliases.
 alias t='tmux new-session -A -s "$(basename $PWD)-$(echo -n $PWD | shasum -a 256 | cut -c1-4)"'
 alias tl="tmux list-sessions -F '#{?session_attached,(attached),          } #{session_name}: #{session_windows} #{?#{==:#{session_windows},1},window,windows} #{session_path} (created #{t:session_created})' 2>/dev/null || echo no sessions."
 alias 'to'='tmux attach-session -t'
 
+# Sesssion variables 
 export EDITOR=nvim
 export VISUAL=nvim
-alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -sv'
-
 export PATH="/Users/devin/Developer/clones/googlesource/depot_tools:$PATH"
 
 eval "$(direnv hook zsh)"
