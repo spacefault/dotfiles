@@ -21,6 +21,6 @@
 [user]
 	email = "74156492+spacefault@users.noreply.github.com"
 	name = "spacefault"
-	signingkey = /Users/devin/.ssh/gitsigning.pub
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGMDk5in4Emx427aeWzVWItHXJcbI7AMFQ+jEJmQ7AUj Devin's Git Signing Key
 [commit]
 	gpgsign = true
