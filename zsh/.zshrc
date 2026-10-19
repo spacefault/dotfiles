@@ -55,7 +55,11 @@ alias -- ip='ip --color'
 alias -- la='ls -lah --color'
 alias -- ls='ls --color'
 alias -- vim=nvim
-alias -- larpfetch=fastfetch
+
+# tmux aliases.
+alias t='tmux new-session -A -s "$(basename $PWD)-$(echo -n $PWD | shasum -a 256 | cut -c1-4)"'
+alias tl="tmux list-sessions -F '#{?session_attached,(attached),          } #{session_name}: #{session_windows} #{?#{==:#{session_windows},1},window,windows} #{session_path} (created #{t:session_created})' 2>/dev/null || echo no sessions."
+alias 'to'='tmux attach-session -t'
 
 export EDITOR=nvim
 export VISUAL=nvim

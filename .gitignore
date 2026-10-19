@@ -18,6 +18,9 @@ emacs/.emacs.d/places
 emacs/.emacs.d/recentf
 emacs/.emacs.d/newsticker
 emacs/.emacs.d/tutorial
+emacs/.emacs.d/org-persist/
+emacs/.emacs.d/places.eld
+emacs/.emacs.d/recentf.eld
 
 # system files
 *~
