@@ -24,8 +24,14 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-PROMPT='%B%F{243}%n %bon %B%m%f%b %B%F{197}%2~%f%b %B%F{39}$vcs_info_msg_0_%f%b> '
-path=($HOME/.bin $path)
+
+ssh_indicator() {
+  if [[ -n "$SSH_CONNECTION" || -n "$SSH_CLIENT" ]]; then
+    echo "%B%F{yellow}[SSH] %f%b"
+  fi
+}
+
+PROMPT='$(ssh_indicator)%B%F{243}%n %bon %B%m%f%b %B%F{197}%2~%f%b %B%F{39}$vcs_info_msg_0_%f%b> '
 
 if [[ -n "$FLAKE_SHELL" ]]; then
   PROMPT="%B%F{green}[flake shell]%f%b $PROMPT"
