@@ -7,7 +7,10 @@ if command -v brew >/dev/null 2>&1; then
 fi
 
 # load completions
-autoload -U compinit && compinit
+autoload -U compinit promptinit
+compinit
+promptinit; prompt gentoo
+
 
 # history settings
 HISTSIZE="1000000"
@@ -42,7 +45,6 @@ alias -- grep='grep --color'
 alias -- ip='ip --color'
 alias -- la='ls -lah --color'
 alias -- ls='ls --color'
-alias -- vim=nvim
 alias -- gcachestat='sudo CCACHE_DIR="/var/cache/ccache" ccache -sv'
 
 # tmux aliases.
