@@ -53,6 +53,6 @@ alias 'to'='tmux attach-session -t'
 # Sesssion variables 
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH="/Users/devin/Developer/clones/googlesource/depot_tools:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 eval "$(direnv hook zsh)"

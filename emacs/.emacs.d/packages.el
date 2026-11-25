@@ -136,4 +136,13 @@
           (?f . "\\footcite{%l}")    ; Footnote citation if needed         - hit 'f' inside RefTeX
           (?d . "\\cite{%l}"))))     ; Default standard cite               - hit d in reftex
 
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil) 
+  (setq evil-undo-system 'undo-redo) 
+  :config
+  (evil-mode 1))
+
 ;;(provide 'packages)
