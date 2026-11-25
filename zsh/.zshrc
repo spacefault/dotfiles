@@ -9,8 +9,7 @@ fi
 # load completions
 autoload -U compinit promptinit
 compinit
-promptinit; prompt gentoo
-
+promptinit
 
 # history settings
 HISTSIZE="1000000"
